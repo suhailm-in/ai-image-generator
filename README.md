@@ -68,6 +68,7 @@ const response = await fetch("https://your-backend-url.com/generate-image", {
         size: "1024x1024"
     })
 });
+```
 
 ---
 
