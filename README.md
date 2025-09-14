@@ -1,70 +1,78 @@
-# Getting Started with Create React App
+# AI Image Generator
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple and interactive **AI-powered image generator** built with **React**. Users can input a description, and the application uses OpenAI's image generation API to create and display AI-generated images.
 
-## Available Scripts
+> ⚠ **Important:** For security reasons, the API key must be handled in a backend service. Do not expose it in the frontend code.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🚀 Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- ✅ Enter a text prompt to generate an image.
+- ✅ Display AI-generated images dynamically.
+- ✅ Loading indicator while generating images.
+- ✅ Responsive design for mobile and desktop screens.
+- ✅ Clean and user-friendly UI with hover effects.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 📦 Technologies Used
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **React.js** – Frontend framework
+- **Fetch API** – For making API requests
+- **CSS** – Styling and layout design
+- **OpenAI API** – Image generation service
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## ⚙ Installation
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clone this repository:
+    ```bash
+    git clone https://github.com/suhailm-in/ai-image-generator.git
+    ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Navigate into the project directory:
+    ```bash
+    cd ai-image-generator
+    ```
 
-### `npm run eject`
+3. Install dependencies:
+    ```bash
+    npm install
+    ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+4. Start the development server:
+    ```bash
+    npm start
+    ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 🔑 API Setup
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+You need to create a backend server to safely handle requests to the OpenAI API, as exposing the API key in the frontend is insecure.
 
-## Learn More
+update the API URL in the React component:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```javascript
+const response = await fetch("https://your-backend-url.com/generate-image", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+        Authorization: "Bearer  $OPENAI_API_KEY",
+    },
+    body: JSON.stringify({
+        prompt: inputRef.current.value,
+        n: 1,
+        size: "1024x1024"
+    })
+});
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## 📱 Responsive Design
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The application is fully responsive:
+Works seamlessly on desktops, tablets, and smartphones.
+Adjusts layout and font sizes depending on screen width.
